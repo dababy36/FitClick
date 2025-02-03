@@ -1,0 +1,581 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 100%;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+header h1 {
+    font-size: 48px;
+    margin: 0;
+    color: #333;
+}
+
+header h1 span {
+    color: #8c52ff;
+}
+
+.hero {
+    position: relative;
+    margin: 20px 0;
+    padding: 0 15px;
+}
+
+.hero img {
+    width: 100%;
+    border-radius: 15px;
+    max-height: 600px;
+    object-fit: cover;
+}
+
+.add-user {
+    position: static;
+    transform: none;
+    background: #8c52ff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(140, 82, 255, 0.3);
+}
+
+.add-user:hover {
+    background: #6b3cc9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(140, 82, 255, 0.4);
+}
+
+.fact {
+    background: linear-gradient(to right, black, #444);
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 40px auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.fact-text {
+    font-size: 16px;
+}
+
+.year {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 20px;
+}
+
+.controls button {
+    background: #8c52ff;
+    border: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(140, 82, 255, 0.3);
+}
+
+.controls button:hover {
+    background: #6b3cc9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(140, 82, 255, 0.4);
+}
+
+.upload-box {
+    margin-top: 40px;
+    padding: 40px;
+    border: 3px dashed #8c52ff;
+    border-radius: 15px;
+    text-align: center;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: 
+        linear-gradient(90deg, #fff 50%, transparent 50%),
+        linear-gradient(90deg, #fff 50%, transparent 50%),
+        linear-gradient(0deg, #fff 50%, transparent 50%),
+        linear-gradient(0deg, #fff 50%, transparent 50%);
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 15px 3px, 15px 3px, 3px 15px, 3px 15px;
+    background-position: 0px 0px, 200% 100%, 0px 200%, 100% 0px;
+}
+
+.upload-box:hover {
+    border-color: #6b3cc9;
+    animation: borderDance 4s infinite linear;
+}
+
+.upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.upload-area img {
+    width: 70px;
+}
+
+.upload-area p {
+    font-size: 16px;
+    color: #777;
+    margin: 0;
+}
+
+.upload-area a {
+    color: #8c52ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.upload-area.dragover {
+    background-color: rgba(140, 82, 255, 0.1);
+    transform: scale(0.98);
+}
+
+.upload-area.dragover + .upload-box {
+    border-color: #6b3cc9;
+    animation: borderDance 2s infinite linear;
+}
+
+.browse-btn {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 15px;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    .fact-text {
+        font-size: 14px;
+    }
+
+    .controls button {
+        padding: 8px 16px;
+        font-size: 16px;
+    }
+
+    .hero, .fact, .upload-box {
+        width: 95%;
+        margin-bottom: 30px;
+    }
+
+    .hero img {
+        max-height: 400px;
+    }
+
+    .upload-box {
+        padding: 30px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .container {
+        width: 100%;
+    }
+}
+
+.hero, .fact, .upload-box {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+
+@keyframes borderDance {
+    0% {
+        background-position: 0px 0px, 200% 100%, 0px 200%, 100% 0px;
+    }
+    100% {
+        background-position: 200% 0px, 0px 100%, 0px 0px, 100% 200%;
+    }
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: modalFadeIn 0.3s ease-out;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 30px;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #666;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 5px;
+}
+
+.close-modal:hover {
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #8c52ff;
+    box-shadow: 0 0 0 2px rgba(140, 82, 255, 0.2);
+}
+
+.submit-btn {
+    background: #8c52ff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #6b3cc9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(140, 82, 255, 0.3);
+}
+
+/* Hero buttons container */
+.hero-buttons {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    width: 90%;
+    max-width: 600px;
+    flex-wrap: wrap;
+}
+
+.show-users {
+    position: static;
+    transform: none;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.show-users:hover {
+    background: #444;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Users table modal specific styles */
+.users-table-modal {
+    max-width: 90%;
+    width: 800px;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    animation: tableLoadIn 0.5s ease-out;
+}
+
+.users-table th,
+.users-table td {
+    padding: 15px;
+    text-align: left;
+    min-width: 120px;
+}
+
+.users-table th {
+    background: #8c52ff;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.users-table tr {
+    transition: all 0.3s ease;
+}
+
+.users-table tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+.users-table tr:hover {
+    background-color: #f0f0f0;
+}
+
+.users-table td {
+    color: #333;
+}
+
+.status-active {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.status-inactive {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Add loading animation */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #8c52ff;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    background: #6b3cc9;
+}
+
+.theme-icon {
+    font-size: 20px;
+    color: white;
+}
+
+/* Dark theme styles */
+body.dark-theme {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+body.dark-theme .container {
+    background: #222;
+}
+
+body.dark-theme header h1 {
+    color: #fff;
+}
+
+body.dark-theme .modal-content {
+    background: #333;
+    color: #fff;
+}
+
+body.dark-theme .form-group label {
+    color: #fff;
+}
+
+body.dark-theme .form-group input {
+    background: #444;
+    border-color: #555;
+    color: #fff;
+}
+
+body.dark-theme .close-modal {
+    color: #fff;
+}
+
+body.dark-theme .users-table td {
+    color: #fff;
+}
+
+body.dark-theme .users-table tr:nth-child(even) {
+    background-color: #2a2a2a;
+}
+
+body.dark-theme .users-table tr:hover {
+    background-color: #3a3a3a;
+}
+
+/* Add this to keep upload box border color in dark mode */
+body.dark-theme .upload-box {
+    background: 
+        linear-gradient(90deg, #222 50%, transparent 50%),
+        linear-gradient(90deg, #222 50%, transparent 50%),
+        linear-gradient(0deg, #222 50%, transparent 50%),
+        linear-gradient(0deg, #222 50%, transparent 50%);
+}
+
+body.dark-theme .upload-area p {
+    color: #fff;
+}
+
+/* Update header positioning */
+header {
+    position: relative;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .theme-icon {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .theme-toggle {
+        top: 10px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@keyframes tableLoadIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modal animations */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

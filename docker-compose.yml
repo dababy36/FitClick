@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: clickfit_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: click_fit
+      MYSQL_USER: clickfit_user
+      MYSQL_PASSWORD: clickfit_password
+    ports:
+      - "3301:3306"
+    volumes:
+      - ./backend/sql:/docker-entrypoint-initdb.d
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+
+volumes:
+  mysql_data:
+
+
